@@ -58,6 +58,11 @@ thus in order for the fourth **maxterm** to be true, the corresponding product m
 
 We can implement any logical function F by "**ANDing**" the maxterms at which the function's result in the truth table is false.
 ## What is the relationship between a minterm and its corresponding maxterm
+Using **DeMorgan's theorem** we can deduct that the maxterm **M**<sub>i</sub> is the opposite of its corresponding minterm **m**<sub>i</sub>. \
+&nbsp; DeMorgan : !(x • y) = !x + !y \
+For a 2 variables example: \
+&nbsp; **M**<sub>2</sub> = !x + y and **m**<sub>2</sub> = x • !y \
+&nbsp; !(**M**<sub>2</sub>) = !!x • !y = x • !y =  **m**<sub>2</sub>
 
 ## SOM, POM, SOP, POS implementations, How to converts from SOM to a POM and from SOP to POS.
 
