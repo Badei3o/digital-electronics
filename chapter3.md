@@ -11,7 +11,7 @@ one or several binary variables and returns one. Basical logical functions are *
 
   Nowadays, logic gates are physically implemented using transistors that reprensent electronic switches that open and closes current paths. \
   The diagrams corresponding to logic gates are the following:
-  ![](images/chapter3/gates.png)
+  <img src= ./images/chapter3/gates.png />
 
 The order of evaluation of a boolean expression is:
  1. Expressions between brackets
@@ -62,9 +62,28 @@ Using **DeMorgan's theorem** we can deduct that the maxterm **M**<sub>i</sub> is
 &nbsp; DeMorgan : !(x • y) = !x + !y \
 For a 2 variables example: \
 &nbsp; **M**<sub>2</sub> = !x + y and **m**<sub>2</sub> = x • !y \
-&nbsp; !(**M**<sub>2</sub>) = !!x • !y = x • !y =  **m**<sub>2</sub>
+F&nbsp; !(**M**<sub>2</sub>) = !!x • !y = x • !y =  **m**<sub>2</sub>
 
 ## SOM, POM, SOP, POS implementations, How to converts from SOM to a POM and from SOP to POS.
+
+### SOP
+Once the sum of minterms is obtained from the truth table, the next step is to try to simplify the expression to see wether
+it's possible to reduce the number of product terms and the number of literals in the terms, the simplified expression is called the **sum of products (SOP)**. \
+The implementation of **SOP** consists of a group of **AND** gates followed by one **OR** gate (called two level implementation). \
+
+<img src= ./images/chapter3/SOP.png width="400"/> \
+
+For the function F = !Y + !XY!Z + XY
+
+### POS
+Another standard form of expressing Boolean functions algebraically is the **product of sums (POS)**,
+it's obtained by forming a logical product of sum terms of any numbers of distinct litterals. \
+The implementation consists of a group of **OR** gates for the sums followed by an **AND** gate for the product.
+
+<img src= ./images/chapter3/POS.png width="400"/> \
+
+For the function F = X(!Y + Z)(X + Y + !Z)
+
 
 ## What are the literal cost and gate input cost of a circuit, how to compute it from a diagram
 
