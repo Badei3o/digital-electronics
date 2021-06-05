@@ -28,9 +28,9 @@ A combinational system circuit is a circuit that:
 A sequential circuit is a circuit that:
 - Have internal states and the output of the system depends on the previous inputs.
 Thus sequential systems need to be updated, they are either at:
-- Certain, periodic discrete times, they are **synchronous** (or clocked) systems, thus the output at time **T**:
+- Certain, periodic discrete times, they are **synchronous** (or clocked) systems, thus the output at time **T**:\
   `output(T) = function(internal_states(T-1), inputs(T-1))`
-- Any instant in time, they are **asynchronous**
+- Any instant in time, they are **asynchronous**\
   `output(T) = function(input(t), internal_states(T))`
 
 ## What are positional/nonpositional number systems
