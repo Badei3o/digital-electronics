@@ -40,8 +40,44 @@ The value of the number is then : (Integer portion) + (Fraction portion), and th
 
 - **Non-positional number systems** are systems in which the placement of a digit does not change its value (e.g Roman numerals).
 ## What's the parity bit ?
-In a binary reprensented number, the parity bit is the least significant bit, it defines whether the number is even or odd.
+Adding a **parity bit** is a method used to detect error in communication/data processing, it's an additional bit added in the end of a binary string to indicate
+whether the number of **1s** in the binary representation is odd or even.
+- With __even parity__ we set the parity bit to **1** if the number of **1s** in the original string is **odd**, we make it even. \
+  1000001 -> 0 1000001. (parity bit is MSB).
+- With __odd parity__  we set the parity bit to **1** if the number of **1s** in the original string is **even**, we make it odd. \
+  1000001 -> 1 1000001. (parity bit is MSB).
+
 ## What are BCD code and Gray code ?
+### A bit about coding
+Coding elements of a set means to represent them in another way, we can define a n-bit binary code as : \
+__A group of n bits that assume 2 to the power of n combinations of 0s and 1s which each combination represent one element of the set being coded__\
+The minimum number (n) of bits needed to encode a set of **M** elements is: \
+**n** = log **M**.
+
+The difference between conversion and coding:
+- Coding 13 -> 0001 | 0011
+- Converting 13 -> 1101
+
+### BCD
+
+**BCD** code or __binary-coded decimal__ is the code most commonly used for decimal digis, its the straight forward binary assignment.
+
+i.e BCD Code is used in 7-segment decoder, each digit can be treated as a separate signal/circuits.
+### Gray code
+The **Gray code** tries to make the change from the number **i** to **i+1** by only changing a single bit.
+The representation of decimal digits in **Gray code** is then:
+|   |    |
+|---|----|
+| 0 |0000|
+| 1 |0001|
+| 2 |0011|
+| 3 |0010|
+| 4 |0110|
+| 5 |0111|
+| 6 |0101|
+| 7 |0100|
+| 8 |1100|
+| 9 |1101|
 
 
 
