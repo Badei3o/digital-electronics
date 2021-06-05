@@ -34,8 +34,29 @@ Some basic identities of boolean algebra are:
 
 
 ## What are the minterms and maxterms of a boolean function
+Logical functions can be represented in a **standard or canonical form**, two of them are 
+the sum of minterms and the product of maxterms to understand them the following terms are needed:
+- A **literal** is a variable within a term taht may or may not be complemented.
+- A **normal term** is a product or sum term in which a variable appears no more than **once**.
 
+### The sum of minterms (SOM)
+A n-variable **Minterm** is a normal product term with **n** literals. \
+Given that each literal can be either complemented or not, there are 2<sup>n</sup> minterms.
 
+A **minterm** reprensent exactly one combination of binary variables in the truth table, it has the value 1 for that combination and 0 for the others.
+The binary representation of the index of the minterm tells us which literal in the combination is **complemented or not**. \
+e. g. the 4th minterm: 4 &rarr; 100 means that X = 1, Y = 0, Z = 0. \
+thus in order for the fourth **minterm** to be true, the corresponding product must be &rarr; X!Y!Z.
+
+We can implement any logical function F by "**ORing**" the minterms at which the function's result in the truth table is true.
+### The product of maxterms (POM)
+A n-variable **Maxterm** is a normal sum terms with **n** literals. \
+Given that each literal can be either complemented or not, there are 2<sup>n</sup> maxterms.
+The binary representation of the index of the maxterm tells us which literal in the combination is **complemented or not**. \
+e. g. the 4th minterm: 4 &rarr; 100 means that X = 0, Y = 1, Z = 1. \
+thus in order for the fourth **maxterm** to be true, the corresponding product must be &rarr; !X + Y + Z.
+
+We can implement any logical function F by "**ANDing**" the maxterms at which the function's result in the truth table is false.
 ## What is the relationship between a minterm and its corresponding maxterm
 
 ## SOM, POM, SOP, POS implementations, How to converts from SOM to a POM and from SOP to POS.
