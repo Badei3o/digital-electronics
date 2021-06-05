@@ -1,4 +1,4 @@
-# CHAPTER 2
+# [CHAPTER 2] DIGITAL SYSTEMS AND INFORMATION
 
 ## Analog and digital systems
 To reprensent information, we use signals from the real world, which are all continuous.
