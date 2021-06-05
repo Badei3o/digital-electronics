@@ -65,19 +65,20 @@ The difference between conversion and coding:
 i.e BCD Code is used in 7-segment decoder, each digit can be treated as a separate signal/circuits.
 ### Gray code
 The **Gray code** tries to make the change from the number **i** to **i+1** by only changing a single bit.
-The representation of decimal digits in **Gray code** is then:
-|   |    |
-|---|----|
-| 0 |0000|
-| 1 |0001|
-| 2 |0011|
-| 3 |0010|
-| 4 |0110|
-| 5 |0111|
-| 6 |0101|
-| 7 |0100|
-| 8 |1100|
-| 9 |1101|
+
+### Below are the representations of the decimal digits both in BCD and Gray code
+
+|Decimal|Gray||Decimal|BCD |
+| 0     |0000|| 0     |0000|
+| 1     |0001|| 1     |0001|
+| 2     |0011|| 2     |0010|
+| 3     |0010|| 3     |0011|
+| 4     |0110|| 4     |0100|
+| 5     |0111|| 5     |0101|
+| 6     |0101|| 6     |0110|
+| 7     |0100|| 7     |0111|
+| 8     |1100|| 8     |1000|
+| 9     |1101|| 9     |1001|
 
 
 
