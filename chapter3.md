@@ -62,7 +62,7 @@ Using **DeMorgan's theorem** we can deduct that the maxterm **M**<sub>i</sub> is
 &nbsp; DeMorgan : !(x • y) = !x + !y \
 For a 2 variables example: \
 &nbsp; **M**<sub>2</sub> = !x + y and **m**<sub>2</sub> = x • !y \
-F&nbsp; !(**M**<sub>2</sub>) = !!x • !y = x • !y =  **m**<sub>2</sub>
+&nbsp; !(**M**<sub>2</sub>) = !!x • !y = x • !y =  **m**<sub>2</sub>
 
 ## SOM, POM, SOP, POS implementations, How to converts from SOM to a POM and from SOP to POS.
 
@@ -83,7 +83,6 @@ The implementation consists of a group of **OR** gates for the sums followed by 
 <img src= ./images/chapter3/POS.png width="400"/> \
 
 For the function F = X(!Y + Z)(X + Y + !Z)
-
 
 ## What are the literal cost and gate input cost of a circuit, how to compute it from a diagram
 
