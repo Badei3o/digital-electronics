@@ -69,6 +69,7 @@ The **Gray code** tries to make the change from the number **i** to **i+1** by o
 ### Below are the representations of the decimal digits both in BCD and Gray code
 
 |Decimal|Gray|BCD |
+|-------|----|----|
 | 0     |0000|0000|
 | 1     |0001|0001|
 | 2     |0011|0010|
