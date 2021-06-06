@@ -96,14 +96,29 @@ The **literal** and **gate input** cost criterias used in circuit optimization, 
 - The gate input cost (G and GN) is the number of inputs to the gates in the implementation corresponding exactly to the given equation or equations.
   In **POS** and **SOP** equations:
   - G = L + #Terms (excluding single literals terms)
-  - GN = G + #Distinct complemented single litterals
+  - GN = G + #Distinct complemented single literals
 
   **e.g.** :
   - F = BD + A!BC + A!C!D &rarr; L = 8, G = 11, GN = 14
   - F = (A + !B)(A + D)(B +C +!D)(!B + !C + D) &rarr; L = 10, G = 14, GN = 17
 
 ## Karnaugh maps
-Pipi caca
+A Karnaugh map is a representation of a logic expression in a table (different representation of the truth table) taht allows using "adjacent" terms for simplifications
+A **K-map** is a collection of squares 
+- Each square represent a minterm.
+- The collection of squares is a graphical representation of a Boolean function.
+- Adjacent squares differs in the value of one variable (like gray coding).
+- Alternative algebraic expression for the same function are derived by recognizing **patterns** of squares.
+
+**K-maps** are useful to minimize logic functions with 2-6 input variables knowing a **K-map** for n input variable is composed of n x n squares (grows quadratically).
+
+### Example for 2 variables
+The 4 minterms are placed as below
+
+<img src= ./images/chapter3/karnaugh.png width=350 />
+
+
+
 ## What is an odd/even boolean function ?
 
 ## What are the gate propagation delay, transport delay and inertial delay
