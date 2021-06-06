@@ -170,10 +170,30 @@ For the simplification of the function, the X can either be treated as 1 or 0 de
 
   <img src= ./images/chapter3/dc2.png width=300 />
 
-
 ## What is an odd/even boolean function ?
+### Exclusive OR and exclusive NOR operator and gates
+
+The exclusive OR (**XOR**) is an operator that performs the function:
+X **XOR** Y = X!Y + !XY 
+
+The **XOR** complement called **XNOR**: 
+X **XNOR** Y = XY + !X!Y
+
+The **XOR** function can be extended to 3 or more variables, for more than 2 variables it's called an **odd¨** function, not a **XOR**. \
+Similarly, we can extend the **XNOR** function to morre than 2 variables, which is called an **even** function.
 
 ## What are the gate propagation delay, transport delay and inertial delay
+The gate propagation delay is the time required for a change in value of a signal to propagate from input to output, three propagation delays can be distinguished.
+- The _high-to-low_ propagation time _t_<sub>PHL</sub> is the delay measured from reference voltage on the input IN to the reference voltage on the output OUT
+  with the output voltage switching from H to L (often the reference voltage is 50% point, halfway between the minimum and the maximum values of the voltages signals).
+- The _low-to-high_ propagation time _t_<sub>PLH</sub> is the delay measured from the reference voltage on the input voltage IN to the reference voltage on the output voltage OUT, with the output voltage going from L to H.
+- The propagation delay _t_<sub>pd</sub> is the maximum of these two delays.
+
+<img src= .images/chapter3/delay.png width=400 />
+
+
+
+
 
 ## Timing hazards in combinational circuits
 
