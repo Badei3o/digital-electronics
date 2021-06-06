@@ -117,6 +117,58 @@ The 4 minterms are placed as below
 
 <img src= ./images/chapter3/karnaugh.png width=350 />
 
+We can use this table and the patterns it presents to simplify any boolean function, consider F represented by the truth table:
+
+| A | B | F |
+|---|---|---|
+| 0 | 0 | 1 |
+| 0 | 1 | 1 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+We know with the **SOM** that : F(A, B) = m<sub>0</sub> + m<sub>1</sub> + m<sub>3</sub>\
+- The first step in using the **K-map** is to draw it by filling with one in each region of the table corresponding to the minterms.
+- Then the second step is to identify the collections of rectangles on the map representing product terms :
+  <img src= ./images/chapter3/karnaugh1.png width=200 />
+
+- The third step is to determine if any rectangle we have is necessary to cover all the 1s in the **K-map**, is there a term that we can remove from our sum that will still give us the right function.
+- The fourth step is to read off the sum of products expressions, determining the corresponding product terms for the required rectangles in the map, in this example: F = !A + B, (The row where A is complemented or the column where B is not complemented).
+
+### Example for 3 variables
+Reduced literal product terms for **SOP** standard forms correspond to rectangles on **K-map** containing cell counts that are powers of 2.
+
+<img src= ./images/chapter3/karnaugh2.png width=200 />
+
+The values of YZ are arranged according to a cyclic gray code (a single bit change from the others).
+Also remember that the sides of the **K-map** are warped, rectangles can contain seemingly non-adjacent cells.
+
+### Map manipulation
+The procedure of combining squares can be a little bit more systematic with the following terms introduced. \
+For a given boolean function and its **K-map**
+- An **implicant** is a product term in a boolean function if it has the values "1" for all the minterms of the product term (all the rectangles on a **K-map** made up of squares containing 1s are implicants).
+- A **prime-implicant** is a product term obtained by combining the maximum possible number of adjacent squares in the map into a rectangles with the number of squares a power of 2.
+- A prime implicant is called an **essential prime implicant** if it is the only prime implicant that covers one or more minterm.
+
+<img src= ./images/chapter3/implicants.png width=450 />
+
+Thus the systematic procedure for finding the optimized expression from the K-map is:
+1. Determine all prime implicants
+2. Do the logical sum of all the prime essential implicants and the other prime implicants needed to include remaining minterms not included in the essential prime implicants.
+
+Apply the **Selection rule**: minimize the overlap among prime implicants as much as possible, in the final solution, make sure that each prime implicant selected includes at least one minterm not included in any other prime implicant selected.
+
+### "Don't care" inputs
+
+In certain situations the boolean function at the output is not defined or does not make sense for certain input combinations. thus the corresponding output values can be assumed either at 0 or 1 and is represented as "X" in a **K-map**.
+For the simplification of the function, the X can either be treated as 1 or 0 depending what's more avantageous.
+
+- In this example, the X is treated as 0 since it will require more implicants to simplify if treated as 1:
+
+  <img src= ./images/chapter3/dc1.png width=300 />
+
+- Here it's beneficial to treat it as 1 since it allows to find larger implicants which means less product terms.
+
+  <img src= ./images/chapter3/dc2.png width=300 />
 
 
 ## What is an odd/even boolean function ?
