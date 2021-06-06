@@ -67,27 +67,43 @@ For a 2 variables example: \
 ## SOM, POM, SOP, POS implementations, How to converts from SOM to a POM and from SOP to POS.
 
 ### SOP
-Once the sum of minterms is obtained from the truth table, the next step is to try to simplify the expression to see wether
-it's possible to reduce the number of product terms and the number of literals in the terms, the simplified expression is called the **sum of products (SOP)**. \
-The implementation of **SOP** consists of a group of **AND** gates followed by one **OR** gate (called two level implementation). \
 
-<img src= ./images/chapter3/SOP.png width="400"/> \
+The implementation of **SOP** consists of a group of **AND** gates followed by one **OR** gate (called two level implementation). \
+<img src= ./images/chapter3/SOP.png width="400"/> 
 
 For the function F = !Y + !XY!Z + XY
 
 ### POS
-Another standard form of expressing Boolean functions algebraically is the **product of sums (POS)**,
-it's obtained by forming a logical product of sum terms of any numbers of distinct litterals. \
-The implementation consists of a group of **OR** gates for the sums followed by an **AND** gate for the product.
 
-<img src= ./images/chapter3/POS.png width="400"/> \
+The implementation consists of a group of **OR** gates for the sums followed by an **AND** gate for the product.
+<img src= ./images/chapter3/POS.png width="400"/> 
 
 For the function F = X(!Y + Z)(X + Y + !Z)
 
+### SOP to POS conversion
+The **SOP** of a function is the sum of the minterms corresponding to a **1** in the function's truth table. and the **POS** is the sum of maxterms corresponding to a **0** in the function's truth table.
+Thus for a set of indexes _I_ and one of its subset _A_ the set of indexes where the result of F is **1** : SOP(_A_) = POS(_I_/_A_).
+
 ## What are the literal cost and gate input cost of a circuit, how to compute it from a diagram
 
-## Karnaugh maps
+The **literal** and **gate input** cost criterias used in circuit optimization, which is the process of simplification of a circuit using a specific procedure or algorithm.
 
+- The literal cost (L) is the number of literal appearances in a Boolean expression corresponding to the logic circuit diagram. \
+  **e.g.** : 
+  - F = BD + A!BC + A!C!D &rarr; L = 8
+  - F = BD + A!BC + A!B!D + AB!C &rarr; L = 11
+
+- The gate input cost (G and GN) is the number of inputs to the gates in the implementation corresponding exactly to the given equation or equations.
+  In **POS** and **SOP** equations:
+  - G = L + #Terms (excluding single literals terms)
+  - GN = G + #Distinct complemented single litterals
+
+  **e.g.** :
+  - F = BD + A!BC + A!C!D &rarr; L = 8, G = 11, GN = 14
+  - F = (A + !B)(A + D)(B +C +!D)(!B + !C + D) &rarr; L = 10, G = 14, GN = 17
+
+## Karnaugh maps
+Pipi caca
 ## What is an odd/even boolean function ?
 
 ## What are the gate propagation delay, transport delay and inertial delay
