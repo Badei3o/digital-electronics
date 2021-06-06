@@ -221,3 +221,4 @@ Static-1 hazards can be spotted in Karnaugh maps, when we look for adjactent "1"
 
 A static-0 hazard is the possibility of a circuit to produce a 1 glitch at the ouput, static hazards can occur in two-level **OR-AND** circuits.
 
+
