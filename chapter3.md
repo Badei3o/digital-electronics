@@ -2,7 +2,7 @@
 
 ## Boolean algebra and logic gates
 - **Boolean algebra** is a mathematical system for specifying and transforming logic functions. It is used to design and analyze digital systems.
-  boolean algebra revolves around binary variables (variables whose value can etheir be **true** or **false**) and the use of binary functions on them. \
+  boolean algebra revolves around binary variables (variables whose value can etheir be **true** or **false**) and the use of binary functions on them.
 - **Logic gates** are circuits that implements logic functions, a logic function is a function that takes 
 one or several binary variables and returns one. Basical logical functions are **AND, OR, NOT**.
   - The **AND** function is denoted by a dot : (X**AND**Y) &rarr; (X•Y) or (XY).
