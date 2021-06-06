@@ -189,11 +189,35 @@ The gate propagation delay is the time required for a change in value of a signa
 - The _low-to-high_ propagation time _t_<sub>PLH</sub> is the delay measured from the reference voltage on the input voltage IN to the reference voltage on the output voltage OUT, with the output voltage going from L to H.
 - The propagation delay _t_<sub>pd</sub> is the maximum of these two delays.
 
-<img src= .images/chapter3/delay.png width=400 />
+<img src= ./images/chapter3/delay.png width=400 />
 
+### Transport delay and inertial delay 
+Transport delay and inertial delay are models employed in modeling logic gates during simulations
+- **Transport delay** the change in an output in response to an input change occurs after a specific **propagation delay**
+- **Inertial delay** is similar to transport delay except that if changes in input causes the output to change twice in an interval of time less than the **rejection time** the change is ignored, the rejection time is a value no larger than the propagation delay (often equal to the propagation delay). \
 
+In the following model, an **AND** gate is modeled with no delay, transport delay and inertial delay, the colored bar shows a 2ns **propagation delay** and the thinner black bar shows a 1ns **rejection time**. \
 
+<img src= ./images/chapter3/delay2.png width=400 />
 
+# Timing hazards in combinational circuits
+So far, we've designed circuits ignoring any form of delay (steady state analysis), observing the delays and their effect is called a _transient analysis_, typically, the output of a circuit might have a short pulse due to delay that cannot be predicted by steady state analysis. \
+When a combinational circuit can produce a glitch, it is called a **hazard**, hazards can be eliminated using Karnaugh maps. \
 
-## Timing hazards in combinational circuits
+### Static 1 hazards
+A static 1 hazard is the possibility of a circuit to produce a 0 glitch at the output when the steady-state would predict a 1. \
+This occurs when a pair of input combination
+- Differs in one variable.
+- Both give one as an output so that it is possible for a momentary 0 output to occur during a transition in the differnet input variable. \
+
+A static-1 hazard may occur in two level **AND-OR** circuits like in the example below, if we assume X , Y, Z = 1 and the system switches to X, Y, Z = 1, 1, 0. Timing delay through each gates is 1 unit of time.
+
+<img src= ./images/chapter3/static1.png width=500 />
+
+Static-1 hazards can be spotted in Karnaugh maps, when we look for adjactent "1" cells that are not covered by a single product term, the solution is to cover the hazardous input pair
+<img src= ./images/chapter3/static12.png width=500 />
+
+### Static 0 hazards
+
+A static-0 hazard is the possibility of a circuit to produce a 1 glitch at the ouput, static hazards can occur in two-level **OR-AND** circuits.:w
 
