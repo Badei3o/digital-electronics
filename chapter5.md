@@ -95,11 +95,51 @@ On the logical diagram we can observe that a full adder consists of 2 half adder
 
 
 ## What are ripple carry adder and carry lookahead adder ?
+Both of the circuits are **parallel binary adders** which are circuits that produces the arithmetic sum of two binary numbers by using n full adders in parallel (for the addition of two n bits numbers). \
 ### Ripple carry adder
+The full adders are connected in cascade with the carry output of one adder connected to the carry input of the next one, the carry propagates from the least to the most significant bit.
+<img src= ./images/chapter5/ripplecarryadder.png width = 500 />
+
+Using such an architecture for an adder involves delay, since the carry is propagated form LSB to MSB, we can estimate the value of the worst case delay with the formula : \
+_t_<sub>ADD</sub> = _t_<sub>ABCout</sub> + (n-2)*_t_<sub>CinCout</sub> + _t_<sub>CinS</sub> for a the addition of **n** bits numbers, where : 
+- _t_<sub>ABCout</sub> is the delay from input A and B to Cout in the last significant adder.
+- _t_<sub>CinCout</sub> is the delay from Cin to Cout n the middle of full adders.
+- _t_<sub>CinS</sub> is the delay from Cin to S in the most significant stage.
+ 
 ### Carry lookahead adder
+A carry lookahead adder uses a dedicated logic to compute the input carry for each stage of the addition, 
+<img src= ./images/chapter5/carrylookahead.png width = 500 />
+
+The use of a single carry lookahead adder makes sense for small numbers (small n), usually for larger numbers, the numbers are divided into groups that are added with carry lookaheads, these groups then use the ripple mechanism between them.
+
 ## How is the 2s complement used in a substractor
-## How does an adder/substractor operates ?
+The substraction of 2 n digits binary numbers **M - N** is done as follows:
+- Add the 2s complement of the subtrahend N to the minuend M &rarr; M + (2<sup>n</sup> - N) = M - N + 2<sup>n</sup>
+- If M &ge; N, the sum produces a carry (2<sup>n</sup>), we ignore it and simply return the result M - N.
+- if M &let; N, the result of the sum does not yields a carry, since it is equal to 2<sup>n</sup> - (N - M), we can perform a correction by taking the 2s complement of the sum and placing a minus sign in front of it to produce -(N - M).
+- 
+## How does an adder-substractor operates ?
+Thus using the 2s complement, the substraction of two numbers can be computed with a **complementer** and an **adder**.
+A n-bit adder-substractor is a circuit controlled by a signal **S**, when **S** = 0, the circuit is an adder, when **S** = 1, it's a substractor.
+each XOR gate receive as an input **S** and one of the inputs **B**.
+- When **S** = 0, **B**<sub>i</sub> XOR 0 = **B**<sub>i</sub>, the full adder receives the value of B and the input carry is 0.
+- When **S** = 1, **B**<sub>i</sub> XOR 1 = /**B**<sub>i</sub> and **C**<sub>0</sub> = 1, in this case the circuit performs the operation A + the 2s complement of B.
+
+<img src= ./images/chapter5/addersubstractor.png width = 600 />
+
+
 ## How is overflow detected in a binary adder ?
+
+Overflow occurs when the result of the additio of two n bits number requires n + 1 bits, we can detect it with an overflow detection circuit that takes the carry at n and n - 1 as input and outputs **V** and **C**.
+- **V** is the result of C<sub>n</sub> XOR C<sub>n-1</sub>.
+  - if **V** = 1, it means the result of the operation contains n + 1 bits but only the right most n of these bits fit in the n bit result meaning an overflow has occured.
+  - if **V** = 0, it indicates that no overflow has occured.
+- **C** is the nth carry 
+
+<img src= ./images/chapter5/overflow.png width = 500 />
+
+
+
 
 
 
