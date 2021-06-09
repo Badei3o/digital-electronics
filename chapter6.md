@@ -41,6 +41,8 @@ conventions in the **Moore machines** states that:
   - **H** is the expected output during the present state with the given input applied.
 - A directed edge connecting a vertex with itself indicates that no changes occurs.
 
+<img src= ./images/chapter6/moorefsm.png width = 400/>
+
 ### Mealy states machines
 A Mealy state machine describes the output as a function of **both** the states and the inputs : _output(t) = f(states(t), inputs(t))_
 
@@ -50,10 +52,57 @@ conventions in the **Mealy machines** states that:
 - The "/" in the directed edges isn't included because the output depends only on the state and not the input values, instead, the output is now included after a "/" following the state in a vertex.
 - There are two input conditions for each state transition and they're separated by a comma. 
 
+<img src= ./images/chapter6/mealyfsm.png width = 300 />
+
 ## What are equivalent states ? 
+Two states are equivalent if their response for each possible input sequence result in an identical output sequence.
+In this graph, states 2 and 3 (10 and 11) are identical since they have the same output for the same inputs and identical next state.
 
-## What are race conditions ? How to detect them ?
+<img src= ./images/chapter6/mealyfsm.png width = 300 />
 
-## What is the internal state of a sequential circuit
-## Name different ways of assigning the states of a system to n variables 
-## Analyse a given sequential circuit or design 
+Thus S2 and S3 are merged in a new state S'2 
+
+<img src= ./images/chapter6/merge1.png width = 200 />
+
+Since S'2 and S1 are equivalent we merge them in a new state S'1 
+
+<img src= ./images/chapter6/merge2.png width = 200 />
+
+Finally, 2 states remain, meaning the system can be implemented using only one bit (one flip-flop).
+
+Some systems combine Moore and Mealy representations, if in some state, the output does not depend on the input (only on the state) we remove it and include it in the state vertex (similar to a Moor model).
+
+## Name different ways of assigning the states of a system to n variables
+For a sequential system with **m** states must be assigned a unique binary code, the minimum number of bits (n) required is such that n &ge; ceiling(_log_<sub>2</sub> m)
+A state assignment with the minimum numbers of bits provides a system with the minimum number of flip flops, however it doesn't always provide the circuit with the minimum **cost** as the cost of the combinational circuit also needs to be taken into account.
+
+For n bits, there are 2<sup>n</sup>! possible assignments, the simplest states doesn't always generate the simplest circuit.
+Some guidelines are used by designer to find fitting assignments:
+- minimize the number of state variable that change on each transition
+- maximize the number of state variables that do not change in a group of related states
+- decompose the set of state variable into individual bits
+
+And some popular state assignments
+- Binary coded in counting order
+- Gray assignment 
+- One-hot assignment (0001, 0010, 0100, 1000)
+- Almost one-hot assignment (0000, 0001, 0010, 0100, 1000)
+
+For example, the assignment using binary code is the following : 
+
+
+<img src= ./images/chapter6/assignment1.png width = 500 />
+
+With Karnaugh map optimization, we find the following excitation equations
+- _Y_<sub>1</sub>(t + 1) = _Y_<sub>1</sub>!_Y_<sub>0</sub> + !_Y_<sub>1</sub>_Y_<sub>0</sub>_X_ 
+- _Y_<sub>0</sub>(t + 1) = _Y_<sub>1</sub>!_Y_<sub>0</sub>!_X_ + !_Y_<sub>1</sub>!_Y_<sub>0</sub>_X_ + _Y_<sub>1</sub>_Y_<sub>0</sub>_X_
+- _Z_(t) = _Y_<sub>1</sub>_Y_<sub>0</sub>_X_
+
+While the use of a gray code assignment would lead to the excitation equations : 
+- _Y_<sub>1</sub>(t + 1) = _Y_<sub>1</sub>_Y_<sub>0</sub> + _Y_<sub>0</sub>_X_ 
+- _Y_<sub>0</sub>(t + 1) = _X_
+- _Z_(t) = _Y_<sub>1</sub>!_Y_<sub>0</sub>_X_
+
+## What are race conditions ?
+Race conditions are uncertain behaviors which is dependent which is dependent on the speed of gates, a race condition occurs when the output of a system depends on a specific execution.
+
