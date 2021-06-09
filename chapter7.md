@@ -41,8 +41,8 @@ We can model logic variables with transistors
 
 ## What are the inverter, NAND and NOR transistor circuits
 The inverter circuit is the following, 
-- Q2 is active when the input is low, meaning the current from VDD will pass and return 1 when input is 0. \
-- Q1 is active when the input is high and discards the signal, the current from VDD cannot pass since Q2 is inactive. \
+- Q2 is active when the input is low, meaning the current from VDD will pass and return 1 when input is 0.
+- Q1 is active when the input is high and discards the signal, the current from VDD cannot pass since Q2 is inactive.
 
 <img src= ./images/chapter7/inverter.png width = 400 />
 
@@ -59,8 +59,28 @@ The NOR gate circuit is the following:
 
 <img src= ./images/chapter7/nor.png width = 200 />
 
+
 ## What means fan-in and fan-out ?
-## What is CMOS static electrical behavior what is ESD ?
+The **fan-in** of a design is the maximum number of inputs that a gate can have in a certain logic family, the number of inputs may limit the speed of the circuit so it is sometimes necessary to impose a certain fan-in. 
+
+We can extend the CMOS gates to gates with more than 2 inputs by simply extanding the design stated previously, A k-input gate has k series and k parallel transistors.
+The fan in is deduced by the cumulative ON resistance on the series transistors.
+
+The **fan-out** is the number of gate inputs a gate can **drive**, it is obtained by adding the contribution of all driven logic gates.
+
+## What is CMOS static electrical behavior ? what is ESD ?
+Static behavior cover situations where the inputs and outputs are not changing.
+### ESD (electrostatic discharge)
+ESD can occur when a build up of charge arcs through a dielectric to another surface of opposite charge. For MOS transistors, the dielectric is the insulation between the gates and the channel between the source and the drain.
+ICs are protected with ESD protection circuits at their inputs.
+## Transition time of CMOS gates
+The transistion time is the time it takes to a logic circuit to change from one state to another we distinguish the **rise** time and the **fall** time.
+The rise and fall time are strongly affected by
+- The ON resistance of the transistors connected in the charge/discharge path
+- The load capacitance
+
+_to complete_
+
 ## Calculate static and dynamic power consumption in CMOS circuits
 ## Which timing needs to be respected to ensure the correct operation of a flip-flop ?
 ## Sequential circuit timing
