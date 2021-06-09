@@ -79,7 +79,8 @@ The rise and fall time are strongly affected by
 - The ON resistance of the transistors connected in the charge/discharge path
 - The load capacitance
 
-_to complete_
+
+
 
 ## Calculate static and dynamic power consumption in CMOS circuits
 ## Which timing needs to be respected to ensure the correct operation of a flip-flop ?
