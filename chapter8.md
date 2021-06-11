@@ -30,6 +30,23 @@ Thus each cell are connected to the same **EN** signal
 <img src= ./images/chapter8/FFenable1.png width = 200 />
 
 ### Shift register
+A shift register is a register made of a chain of flip-flops, its purpose is to move the data laterally within the register towards the MSB or LSB, all flips-flops have a common clock-pulse that activates the shift.
+
+<img src= ./images/chapter8/shiftregister.png width = 200 />
+
+- The data input is called the **serial input**.
+- The vector _Q_<sub>1</sub>, _Q_<sub>2</sub>, ..., _Q_<sub>n</sub> is called the **parallel output**.
+- The data output _Q_<sub>n</sub> is the **serial output**.
+- At each clock pulse, the serial input **SI** is placed at MSB, bits from _1_ to _n-1_ are shifted one position to the right, the **serial output** is shifted out of the register.
+
+The data can also be moved to the left using the following circuit:
+<img src= ./images/chapter8/shiftregister1.png width = 200 />
+
+- The serial output is _Q_<sub>1</sub>.
+- At each clock pulse, the serial input is moved to LSB.
+- Bits _2_ to _n_ are moved one position left.
+- Serial output is removed from the register.
+
 ### General register
 ## What is a counter ? 
 ## What is a ripple counter ?
