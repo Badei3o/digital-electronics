@@ -74,7 +74,7 @@ Whenever there is a positive edge on the clock, the output A is complemented (si
 
 Whe can build a **ripple counter** by connecting n cells of 1 bit counters, the output of cell _i_ is connected to the clock input of cell _i+1_ 
 
-<img src= ./images/chapter8/4bitcounter.png width = 400 />
+<img src= ./images/chapter8/4bitcounter.png width = 200 />
 
 ## What is a synchronous counter ?
 All the flip-flops in a synchronous counter use a common clock signal.
