@@ -78,6 +78,19 @@ Whe can build a **ripple counter** by connecting n cells of 1 bit counters, the 
 
 ## What is a synchronous counter ?
 All the flip-flops in a synchronous counter use a common clock signal.
+A synchronous binary counter that counts up by one can be constructed from an incrementer and D flip-flops, the output can be used to extend the counter.
+
+<img src= ./images/chapter8/synchronous.png width = 400 />
+
 
 ## How do you initialize a counter ?
+
+The initialization of a counter should be done only in power-up or reset conditions and in a valid state.
+
+To initialize a counter in normal operation, one should never use the asynchronous flip-flops inputs. \
+In example, we want to design a modulo-7 counter using a general 4-bit counter, we want to detect the last state _0111_ and use the _clear_ input of the counter right after to go back to _0000_.
+If the _clear_ input acts on the asynchronous reset input, the transition to _0000_ will not happen at clock edge and we cannot ensure that state 7 will happen long enough to reliably reset to _0000_.
+
+<img src= ./images/chapter8/suicidecounter.png width = 400 />
+
 
