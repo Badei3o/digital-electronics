@@ -47,11 +47,37 @@ The data can also be moved to the left using the following circuit:
 - Bits _2_ to _n_ are moved one position left.
 - Serial output is removed from the register.
 
+With a bit more circuitry, we can design a shift register with a parallel load, the ability to change the states of the flip-flops within the register.
+
+<img src= ./images/chapter8/shiftregister2.png width = 400 />
+
+- If **SHIFT** = 0, _D_<sub>A</sub> and _D_<sub>B</sub> are loaded and replace A and B.
+- If **SHIFT** = 1, The previously loaded data is shifted one posistion to the right.
 
 ### General register
+By placing a 4-input multiplexer in front of each D flip-flop, we can implement a circuit that is able to perform the 4 operations discussed above (shift left/right, load, hold).
+
+<img src= ./images/chapter8/generalregister.png width = 600 />
 
 ## What is a counter ? 
+A counter is a sequential circuit that goes through a **prescribed sequence** of states upon the application of successive clock pulses (or pulses from another source),
+it is made of a set of n flip-flops, and follows the binary number sequence (can count from 0 to 2<sup>n</sup> - 1).
+
 ## What is a ripple counter ?
+A ripple counter is asynchronous, the flip-flops output transitions are used as the sources of triggering changes in other flip-flops.
+As an example of how it works, the circuit of a 1 bit ripple counter and its behavior over time.
+
+
+<img src= ./images/chapter8/1bitcounter.png width = 400 />
+
+Whenever there is a positive edge on the clock, the output A is complemented (since D is linked to Q*, its complement), the counter thus forms a sequence of 0&rarr; 1&rarr;0&rarr;1&rarr;0&rarr;1&rarr;0&rarr;1, it is a binary modulo-2 counter.
+
+Whe can build a **ripple counter** by connecting n cells of 1 bit counters, the output of cell _i_ is connected to the clock input of cell _i+1_ 
+
+<img src= ./images/chapter8/4bitcounter.png width = 400 />
+
 ## What is a synchronous counter ?
+All the flip-flops in a synchronous counter use a common clock signal.
+
 ## How do you initialize a counter ?
 
